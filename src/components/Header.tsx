@@ -37,7 +37,7 @@ import { twMerge } from "tailwind-merge";
 const Header = (props: { mode: boolean; className?: string }) => {
   // const router = useRouter();
   const locale = useLocale();
-  const language = props.mode ? useAppSelector(selectTech) : null;
+  const language = useAppSelector(selectTech);
 
   return (
     <header
@@ -56,7 +56,7 @@ const Header = (props: { mode: boolean; className?: string }) => {
             alt="Picture of the author"
           />
         </Link>
-        {language && (
+        {props.mode && (
           <Dialog>
             <DialogTrigger>
               {language == "html" ? (
