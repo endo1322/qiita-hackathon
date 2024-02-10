@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 
 export default function Index() {
   const t = useTranslations("Index");
-  const hello = trpc.hello.useQuery({ text: "client" });
+  const hello = trpc.hello.useQuery({ id: 1 });
+  console.log(hello.data);
   return (
     <div>
       <h1>{t("title")}</h1>
@@ -14,7 +15,7 @@ export default function Index() {
         <div>Loading...</div>
       ) : (
         <div>
-          <p className="font-bold">{hello.data.greeting}</p>
+          <p className="font-bold">{hello.data[0].name}</p>
         </div>
       )}
       <Button size={"sm"}>button</Button>

@@ -1,11 +1,17 @@
 import { procedure, router } from "@/server/trpc";
 import { z } from "zod";
+import { prisma } from "@/server/prisma";
 
 export const appRouters = router({
   hello: procedure
-    .input(z.object({ text: z.string() }))
+    .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
-      return { greeting: `hello ${input.text} world` };
+      const findUniqueUser = await prisma.user.findMany({
+        where: {
+          id: input.id,
+        },
+      });
+      return findUniqueUser;
     }),
 });
 
