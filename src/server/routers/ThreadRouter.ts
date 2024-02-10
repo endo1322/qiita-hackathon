@@ -24,6 +24,21 @@ const ThreadRouter = router({
       });
       return uniqueThread;
     }),
+  create: procedure
+    .input(
+      z.object({ techId: z.number(), userId: z.number(), name: z.string() })
+    )
+    .mutation(async ({ input }) => {
+      const { techId, userId, name } = input;
+      const createCompany = await prisma.thread.create({
+        data: {
+          techId: techId,
+          userId: userId,
+          name: name,
+        },
+      });
+      return createCompany;
+    }),
 });
 
 export default ThreadRouter;
