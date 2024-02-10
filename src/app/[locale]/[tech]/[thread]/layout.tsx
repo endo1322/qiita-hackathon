@@ -14,7 +14,7 @@ function ThreadTopLayout({
   return (
     <ThreadProvider threadId={Number(thread)}>
       <div className="flex flex-col w-full h-full">
-        <Header />
+        <Header mode={true} />
         <div className="flex flex-row h-full overflow-hidden">
           <NavMenu />
           <div className="flex-grow px-5 my-3 overflow-y-auto">{children}</div>
