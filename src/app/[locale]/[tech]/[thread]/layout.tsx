@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
 
-function LanguageTopLayout({ children }: { children: React.ReactNode }) {
+function ThreadTopLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col w-full h-full">
       <Header />
@@ -15,4 +15,4 @@ function LanguageTopLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default LanguageTopLayout;
+export default ThreadTopLayout;
