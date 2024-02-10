@@ -38,7 +38,7 @@ const Header = () => {
 
   return (
     <header
-      className={`flex flex-row justify-between bg-white items-center w-full h-[48px] px-[30px] shadow-sm`}
+      className={`flex flex-row justify-between bg-white items-center w-full h-[48px] min-h-[48px] px-[30px] shadow-sm`}
     >
       <Dialog>
         <DialogTrigger>

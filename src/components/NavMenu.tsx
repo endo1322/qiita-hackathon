@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NavMenu = () => {
   return (
-    <nav className="flex flex-col w-[150px] h-full shadow-elevation-2 z-10 justify-between py-6 bg-white">
+    <nav className="flex flex-col w-[150px] min-w-[150px] h-full shadow-elevation-2 z-10 justify-between py-6 bg-white">
       <div className="flex flex-col gap-3 pl-[20px] pr-[5px] text-sm">
         <Link
           className={"pl-2 hover:bg-secondary rounded-md"}
