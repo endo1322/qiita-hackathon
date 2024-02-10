@@ -1,10 +1,10 @@
-import { procedure, router } from "@/server/trpc";
-import { z } from "zod";
-import { prisma } from "@/server/prisma";
+import { router } from "@/server/trpc";
 import TechRouter from "./TechRouter";
+import ThreadRouter from "./ThreadRouter";
 
 export const appRouters = router({
   tech: TechRouter,
+  thread: ThreadRouter,
 });
 
 // export type definition of API
