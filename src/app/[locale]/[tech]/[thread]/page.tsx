@@ -1,8 +1,9 @@
 "use client";
 import MessageBox from "@/components/MessageBox";
 import MessageCard from "@/components/MessageCard";
-import UserIcon from "@/components/UserIcon";
-import React from "react";
+import { useAppDispatch } from "@/lib/hooks/redux";
+import { setThread } from "@/lib/redux/reducers/threadReducer";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 
 type Inputs = {
@@ -10,7 +11,15 @@ type Inputs = {
   exampleRequired: string;
 };
 
-const LanguageTopPage = () => {
+const ThreadTopPage = ({
+  params,
+}: {
+  params: { tech: string; thread: string };
+}) => {
+  const dispach = useAppDispatch();
+  useEffect(() => {
+    dispach(setThread({ tech: params.tech, thread: params.thread }));
+  }, [params]);
   const methods = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   return (
@@ -32,10 +41,9 @@ const LanguageTopPage = () => {
           // className={"absolute inset-x-0 bottom-0"}
           onSubmit={onSubmit}
         />
-        {/* </form> */}
       </FormProvider>
     </div>
   );
 };
 
-export default LanguageTopPage;
+export default ThreadTopPage;

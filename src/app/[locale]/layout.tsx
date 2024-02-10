@@ -5,6 +5,7 @@ import "./globals.css";
 import TrpcProvider from "@/lib/context/trpc";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { twMerge } from "tailwind-merge";
+import ReduxProvider from "@/lib/context/redux";
 
 // const inter = Inter({ subsets: ["latin"] });
 const NotoSans = Noto_Sans({ subsets: ["latin"] });
@@ -28,9 +29,11 @@ export default function LocaleLayout({
         className={twMerge(NotoSans.className, "w-full h-full bg-background")}
       >
         <TrpcProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
+          <ReduxProvider>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </ReduxProvider>
         </TrpcProvider>
       </body>
     </html>
