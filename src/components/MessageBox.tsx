@@ -10,7 +10,7 @@ type Inputs = {
 };
 
 interface MessageBoxProps {
-  className: string;
+  className?: string;
   onSubmit: SubmitHandler<Inputs>;
 }
 
