@@ -37,7 +37,7 @@ import { twMerge } from "tailwind-merge";
 const Header = (props: { mode: boolean; className?: string }) => {
   // const router = useRouter();
   const locale = useLocale();
-  const language = useAppSelector(selectTech);
+  const tech = useAppSelector(selectTech);
 
   return (
     <header
@@ -59,43 +59,43 @@ const Header = (props: { mode: boolean; className?: string }) => {
         {props.mode && (
           <Dialog>
             <DialogTrigger>
-              {language == "html" ? (
+              {tech?.name == "html" ? (
                 <Html5Original className="rounded-md" size={"32px"} />
-              ) : language == "css" ? (
+              ) : tech?.name == "css" ? (
                 <Css3Original className="rounded-md" size={"32px"} />
-              ) : language == "javascript" ? (
+              ) : tech?.name == "javascript" ? (
                 <JavascriptOriginal className="rounded-md" size={"32px"} />
-              ) : language == "typescript" ? (
+              ) : tech?.name == "typescript" ? (
                 <TypescriptOriginal className="rounded-md" size={"32px"} />
-              ) : language == "python" ? (
+              ) : tech?.name == "python" ? (
                 <PythonOriginal className="rounded-md" size={"32px"} />
-              ) : language == "go" ? (
+              ) : tech?.name == "go" ? (
                 <GoOriginal className="rounded-md" size={"32px"} />
-              ) : language == "java" ? (
+              ) : tech?.name == "java" ? (
                 <JavaOriginal className="rounded-md" size={"32px"} />
-              ) : language == "kotlin" ? (
+              ) : tech?.name == "kotlin" ? (
                 <KotlinOriginal className="rounded-md" size={"32px"} />
-              ) : language == "swift" ? (
+              ) : tech?.name == "swift" ? (
                 <SwiftOriginal className="rounded-md" size={"32px"} />
-              ) : language == "php" ? (
+              ) : tech?.name == "php" ? (
                 <PhpOriginal className="rounded-md" size={"32px"} />
-              ) : language == "c" ? (
+              ) : tech?.name == "c" ? (
                 <COriginal className="rounded-md" size={"32px"} />
-              ) : language == "cplusplus" ? (
+              ) : tech?.name == "cplusplus" ? (
                 <CplusplusOriginal className="rounded-md" size={"32px"} />
-              ) : language == "csharp" ? (
+              ) : tech?.name == "csharp" ? (
                 <CsharpOriginal className="rounded-md" size={"32px"} />
-              ) : language == "ruby" ? (
+              ) : tech?.name == "ruby" ? (
                 <RubyOriginal className="rounded-md" size={"32px"} />
-              ) : language == "rust" ? (
+              ) : tech?.name == "rust" ? (
                 <RustOriginal className="rounded-md" size={"32px"} />
-              ) : language == "mysql" ? (
+              ) : tech?.name == "mysql" ? (
                 <MysqlOriginal className="rounded-md" size={"32px"} />
-              ) : language == "postgresql" ? (
+              ) : tech?.name == "postgresql" ? (
                 <PostgresqlOriginal className="rounded-md" size={"32px"} />
-              ) : language == "sqlite" ? (
+              ) : tech?.name == "sqlite" ? (
                 <SqliteOriginal className="rounded-md" size={"32px"} />
-              ) : language == "amazonwebservices" ? (
+              ) : tech?.name == "amazonwebservices" ? (
                 <AmazonwebservicesOriginalWordmark
                   className="rounded-md"
                   size={"32px"}

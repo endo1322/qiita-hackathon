@@ -21,7 +21,7 @@ const NavMenu = () => {
                 className={
                   "px-4 py-1 bg-primary text-primary-foreground font-bold rounded-md border-b"
                 }
-                href={`/${local}/${tech}/${value.id}`}
+                href={`/${local}/${tech?.name}/${value.id}`}
               >
                 {value.name}
               </Link>
@@ -29,7 +29,7 @@ const NavMenu = () => {
               <Link
                 key={value.id}
                 className={"px-4 py-1 hover:bg-secondary rounded-md border-b"}
-                href={`/${local}/${tech}/${value.id}`}
+                href={`/${local}/${tech?.name}/${value.id}`}
               >
                 {value.name}
               </Link>
