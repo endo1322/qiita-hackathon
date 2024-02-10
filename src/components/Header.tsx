@@ -53,7 +53,7 @@ const Header = () => {
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-wrap gap-3">
-            <Link href={`/${locale}/html"`}>
+            <Link href={`/${locale}/html`}>
               <Html5Original className="rounded-md" size={"50px"} />
             </Link>
             <Link href={`/${locale}/css3`}>
