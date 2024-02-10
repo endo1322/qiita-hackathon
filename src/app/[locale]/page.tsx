@@ -10,7 +10,7 @@ export default function Index() {
   console.log(hello.data);
   return (
     <div>
-      <h1>{t("title")}</h1>
+      <h1 className="bg-white">{t("title")}</h1>
       {!hello.data ? (
         <div>Loading...</div>
       ) : (
