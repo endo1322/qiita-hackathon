@@ -18,13 +18,15 @@ const colorSchemes: { [key: number]: { icon: string; background: string } } = {
 
 const UserIcon = (props: { userId: number }) => {
   return props.userId === 1322 ? (
-    <Image
-      className=" rounded-full"
-      src="/icon.svg"
-      width={32}
-      height={32}
-      alt="Picture of the author"
-    />
+    <div className="min-w-8 min-h-8">
+      <Image
+        className=" rounded-full"
+        src="/icon.svg"
+        width={32}
+        height={32}
+        alt="Picture of the author"
+      />
+    </div>
   ) : (
     <IconContext.Provider
       value={{
