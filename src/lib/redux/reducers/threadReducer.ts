@@ -1,31 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { threadType } from "@/types/thread";
 
 type ThreadState = {
-  tech: null | string;
-  thread: null | string;
+  techName: null | string;
+  threads: Array<threadType>;
 };
 
 const initialState: ThreadState = {
-  tech: null,
-  thread: null,
+  techName: null,
+  threads: [],
 };
 
 export const threadSlice = createSlice({
   name: "thread",
   initialState: initialState,
   reducers: {
-    setThread: (state, action: PayloadAction<ThreadState>) => {
-      state.tech = action.payload.tech;
-      state.thread = action.payload.thread;
+    setThreads: (state, action: PayloadAction<ThreadState>) => {
+      state.techName = action.payload.techName;
+      state.threads = action.payload.threads;
     },
   },
 });
 
-export const { setThread } = threadSlice.actions;
+export const { setThreads } = threadSlice.actions;
 
-export const selectTech = (state: RootState) => state.thread.tech;
+export const selectTech = (state: RootState) => state.thread.techName;
 
-export const selectThread = (state: RootState) => state.thread.thread;
+export const selectThreads = (state: RootState) => state.thread.threads;
 
 export default threadSlice.reducer;

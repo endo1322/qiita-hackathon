@@ -2,7 +2,7 @@
 import MessageBox from "@/components/MessageBox";
 import MessageCard from "@/components/MessageCard";
 import { useAppDispatch } from "@/lib/hooks/redux";
-import { setThread } from "@/lib/redux/reducers/threadReducer";
+import { setThreads } from "@/lib/redux/reducers/threadReducer";
 import React, { useEffect } from "react";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 
@@ -16,10 +16,6 @@ const ThreadTopPage = ({
 }: {
   params: { tech: string; thread: string };
 }) => {
-  const dispach = useAppDispatch();
-  useEffect(() => {
-    dispach(setThread({ tech: params.tech, thread: params.thread }));
-  }, [params]);
   const methods = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   return (

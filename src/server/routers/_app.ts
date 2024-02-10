@@ -1,18 +1,10 @@
 import { procedure, router } from "@/server/trpc";
 import { z } from "zod";
 import { prisma } from "@/server/prisma";
+import TechRouter from "./TechRouter";
 
 export const appRouters = router({
-  hello: procedure
-    .input(z.object({ id: z.number() }))
-    .query(async ({ input }) => {
-      const findUniqueUser = await prisma.user.findMany({
-        where: {
-          id: input.id,
-        },
-      });
-      return findUniqueUser;
-    }),
+  tech: TechRouter,
 });
 
 // export type definition of API
