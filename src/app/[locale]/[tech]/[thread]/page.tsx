@@ -1,9 +1,8 @@
 "use client";
 import MessageBox from "@/components/MessageBox";
 import MessageCard from "@/components/MessageCard";
-import { useAppDispatch } from "@/lib/hooks/redux";
-import { setThread } from "@/lib/redux/reducers/threadReducer";
-import React, { useEffect } from "react";
+import { useAppSelector } from "@/lib/hooks/redux";
+import { selectMessages } from "@/lib/redux/reducers/threadReducer";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 
 type Inputs = {
@@ -16,23 +15,20 @@ const ThreadTopPage = ({
 }: {
   params: { tech: string; thread: string };
 }) => {
-  const dispach = useAppDispatch();
-  useEffect(() => {
-    dispach(setThread({ tech: params.tech, thread: params.thread }));
-  }, [params]);
   const methods = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const messages = useAppSelector(selectMessages);
   return (
     <div className="flex flex-col justify-between min-h-full h-fit">
       <div className="relative h-full flex flex-col gap-1 mb-5">
-        {[1, 2, 3, 4, 9, 10, 1322].map((value) => (
+        {messages.map((value) => (
           <MessageCard
-            key={value}
+            key={value.id}
             className=""
-            userId={value}
-            userName="endo"
-            date="2024"
-            content="こんにちはこんにちはこんにちはこんにちはこんにちはあああああああちはあああああああはこんにちはこんにちはあああああああちはあああああああはこんにちはこんにちはあああああああちはあああああああはこんにちはこんにちはあああああああちはあああああああ"
+            userId={value.userId}
+            userName={value.user?.name as string}
+            date={value.createdAt}
+            content={value.content}
           />
         ))}
       </div>

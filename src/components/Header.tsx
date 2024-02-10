@@ -29,10 +29,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import { useAppSelector } from "@/lib/hooks/redux";
-import { selectTech } from "@/lib/redux/reducers/threadReducer";
+import { selectTech } from "@/lib/redux/reducers/techReducer";
 
 const Header = () => {
   // const router = useRouter();
@@ -110,61 +109,61 @@ const Header = () => {
               </DialogDescription>
             </DialogHeader>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/html/general`}>
+              <Link href={`/${locale}/html/1`}>
                 <Html5Original className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/css/general`}>
+              <Link href={`/${locale}/css/2`}>
                 <Css3Original className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/javascript/general`}>
+              <Link href={`/${locale}/javascript/3`}>
                 <JavascriptOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/typescript/general`}>
+              <Link href={`/${locale}/typescript/4`}>
                 <TypescriptOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/python/general`}>
+              <Link href={`/${locale}/python/5`}>
                 <PythonOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/go/general`}>
+              <Link href={`/${locale}/go/6`}>
                 <GoOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/java/general`}>
+              <Link href={`/${locale}/java/7`}>
                 <JavaOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/kotlin/general`}>
+              <Link href={`/${locale}/kotlin/8`}>
                 <KotlinOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/swift/general`}>
+              <Link href={`/${locale}/swift/9`}>
                 <SwiftOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/php/general`}>
+              <Link href={`/${locale}/php/10`}>
                 <PhpOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/c/general`}>
+              <Link href={`/${locale}/c/11`}>
                 <COriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/cplusplus/general`}>
+              <Link href={`/${locale}/cplusplus/12`}>
                 <CplusplusOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/csharp/general`}>
+              <Link href={`/${locale}/csharp/13`}>
                 <CsharpOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/ruby/general`}>
+              <Link href={`/${locale}/ruby/14`}>
                 <RubyOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/rust/general`}>
+              <Link href={`/${locale}/rust/15`}>
                 <RustOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/mysql/general`}>
+              <Link href={`/${locale}/mysql/16`}>
                 <MysqlOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/postgresql/general`}>
+              <Link href={`/${locale}/postgresql/17`}>
                 <PostgresqlOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/sqlite/general`}>
+              <Link href={`/${locale}/sqlite/18`}>
                 <SqliteOriginal className="rounded-md" size={"50px"} />
               </Link>
-              <Link href={`/${locale}/amazonwebservices/general`}>
+              <Link href={`/${locale}/amazonwebservices/19`}>
                 <AmazonwebservicesOriginalWordmark
                   className="rounded-md"
                   size={"50px"}
