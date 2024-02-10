@@ -18,6 +18,7 @@ const LanguageTopPage = () => {
       <div className="relative h-full flex flex-col gap-1 mb-5">
         {[1, 2, 3, 4, 9, 10, 1322].map((value) => (
           <MessageCard
+            key={value}
             className=""
             userId={value}
             userName="endo"
