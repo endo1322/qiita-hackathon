@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TrpcProvider from "@/lib/context/trpc";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { twMerge } from "tailwind-merge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function LocaleLayout({
   const messages = useMessages();
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body className={twMerge(inter.className, "bg-background")}>
         <TrpcProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
