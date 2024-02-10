@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Tech" ADD COLUMN     "initThreadId" INTEGER NOT NULL DEFAULT 1;

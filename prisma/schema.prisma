@@ -46,9 +46,10 @@ model Message {
 }
 
 model Tech {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  threads   Thread[]
+  id           Int      @id @default(autoincrement())
+  name         String   @unique
+  initThreadId Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  threads      Thread[]
 }
