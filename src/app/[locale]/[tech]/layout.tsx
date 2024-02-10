@@ -8,7 +8,7 @@ const TechLayout = ({
   children: React.ReactNode;
   params: { tech: string };
 }) => {
-  return <TechProvider tech={tech}>{children}</TechProvider>;
+  return <TechProvider techName={tech}>{children}</TechProvider>;
 };
 
 export default TechLayout;
