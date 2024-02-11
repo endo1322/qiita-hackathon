@@ -14,7 +14,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { PlusSquare } from "lucide-react";
-import { Button } from "./ui/button";
 import { techType } from "@/types/tech";
 import { trpc } from "@/utils/trpc/trpc";
 
@@ -24,12 +23,13 @@ const NavMenu = () => {
   const tech = useAppSelector(selectTech) as techType;
   const threads = useAppSelector(selectThreads);
   const thread = useAppSelector(selectThread) as threadType;
-  const { register, handleSubmit } = useForm<threadFormType>();
+  const { register, handleSubmit, reset } = useForm<threadFormType>();
   const onSubmit: SubmitHandler<threadFormType> = (data) => {
     data.techId = tech?.id;
     data.userId = 1322;
     console.log(data);
     threadCreate.mutate(data);
+    reset();
   };
 
   return (
