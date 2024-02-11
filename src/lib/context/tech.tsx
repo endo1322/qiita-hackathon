@@ -22,7 +22,7 @@ export const TechProvider: React.FC<{
   // techが変わるたびにスレッドを取得する
   React.useEffect(() => {
     if (techData) {
-      dispatch(setTech({ techName: techName, threads: techData.threads }));
+      dispatch(setTech({ tech: techData, threads: techData.threads }));
       console.log(techData);
     }
   }, [techData]);

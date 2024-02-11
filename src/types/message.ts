@@ -10,3 +10,9 @@ export interface messageType {
   updatedAt: string;
   user?: userType;
 }
+
+export interface messageFormType {
+  threadId: number;
+  userId: 1322;
+  content: string;
+}

@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { threadType } from "@/types/thread";
+import { techType } from "@/types/tech";
 
 type TechState = {
-  techName: null | string;
+  tech: null | techType;
   threads: Array<threadType>;
 };
 
 const initialState: TechState = {
-  techName: null,
+  tech: null,
   threads: [],
 };
 
@@ -17,7 +18,7 @@ export const techSlice = createSlice({
   initialState: initialState,
   reducers: {
     setTech: (state, action: PayloadAction<TechState>) => {
-      state.techName = action.payload.techName;
+      state.tech = action.payload.tech;
       state.threads = action.payload.threads;
     },
   },
@@ -25,7 +26,7 @@ export const techSlice = createSlice({
 
 export const { setTech } = techSlice.actions;
 
-export const selectTech = (state: RootState) => state.tech.techName;
+export const selectTech = (state: RootState) => state.tech.tech;
 
 export const selectThreads = (state: RootState) => state.tech.threads;
 
