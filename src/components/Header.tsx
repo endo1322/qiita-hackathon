@@ -107,12 +107,8 @@ const Header = (props: { mode: boolean; className?: string }) => {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>他の技術のコミュニティに移動する</DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
               </DialogHeader>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <Link href={`/${locale}/html/1`}>
                   <Html5Original className="rounded-md" size={"50px"} />
                 </Link>
