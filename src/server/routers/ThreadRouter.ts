@@ -30,14 +30,14 @@ const ThreadRouter = router({
     )
     .mutation(async ({ input }) => {
       const { techId, userId, name } = input;
-      const createCompany = await prisma.thread.create({
+      const createThread = await prisma.thread.create({
         data: {
           techId: techId,
           userId: userId,
           name: name,
         },
       });
-      return createCompany;
+      return createThread;
     }),
 });
 
