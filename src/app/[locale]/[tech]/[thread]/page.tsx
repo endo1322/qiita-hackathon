@@ -2,21 +2,30 @@
 import MessageBox from "@/components/MessageBox";
 import MessageCard from "@/components/MessageCard";
 import { useAppSelector } from "@/lib/hooks/redux";
-import { selectMessages } from "@/lib/redux/reducers/threadReducer";
+import {
+  selectMessages,
+  selectThread,
+} from "@/lib/redux/reducers/threadReducer";
+import { messageFormType } from "@/types/message";
+import { trpc } from "@/utils/trpc/trpc";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-};
 
 const ThreadTopPage = ({
   params,
 }: {
   params: { tech: string; thread: string };
 }) => {
-  const methods = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const threadId = useAppSelector(selectThread)?.id as number;
+  console.log(threadId);
+  const messageCreate = trpc.message.create.useMutation();
+  const methods = useForm<messageFormType>();
+  const onSubmit: SubmitHandler<messageFormType> = (data) => {
+    data.threadId = threadId;
+    data.userId = 1322;
+    console.log(data);
+    messageCreate.mutate(data);
+    methods.reset();
+  };
   const messages = useAppSelector(selectMessages);
   return (
     <div className="flex flex-col justify-between min-h-full h-fit">
@@ -33,10 +42,7 @@ const ThreadTopPage = ({
         ))}
       </div>
       <FormProvider {...methods}>
-        <MessageBox
-          // className={"absolute inset-x-0 bottom-0"}
-          onSubmit={onSubmit}
-        />
+        <MessageBox onSubmit={onSubmit} />
       </FormProvider>
     </div>
   );

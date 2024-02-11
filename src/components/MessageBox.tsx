@@ -3,19 +3,15 @@ import React from "react";
 import { useFormContext, SubmitHandler } from "react-hook-form";
 import { Button } from "./ui/button";
 import { twMerge } from "tailwind-merge";
-
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-};
+import { messageFormType } from "@/types/message";
 
 interface MessageBoxProps {
   className?: string;
-  onSubmit: SubmitHandler<Inputs>;
+  onSubmit: SubmitHandler<messageFormType>;
 }
 
 const MessageBox = (props: MessageBoxProps) => {
-  const { register, handleSubmit } = useFormContext<Inputs>(); // retrieve all hook methods
+  const { register, handleSubmit } = useFormContext<messageFormType>(); // retrieve all hook methods
   return (
     <form
       className={twMerge(
@@ -27,7 +23,7 @@ const MessageBox = (props: MessageBoxProps) => {
       <textarea
         placeholder="テキストを入力"
         className="h-50 py-1 px-2 outline-none"
-        {...register("example")}
+        {...register("content")}
       />
       <div className="flex justify-end">
         <Button className="" variant={"default"} size={"sm"}>
