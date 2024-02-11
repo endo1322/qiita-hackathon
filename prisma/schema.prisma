@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id        Int       @id
+  name      String
+  mail      String    @unique
+  pass      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  threads   Thread[]
+  messages  Message[]
+}
+
+model Thread {
+  id        Int       @id @default(autoincrement())
+  techId    Int
+  userId    Int
+  name      String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  tech      Tech      @relation(fields: [techId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+  messages  Message[]
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  threadId  Int
+  userId    Int
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  thread    Thread   @relation(fields: [threadId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Tech {
+  id           Int      @id @default(autoincrement())
+  name         String   @unique
+  initThreadId Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  threads      Thread[]
+}

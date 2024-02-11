@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import TrpcProvider from "@/lib/context/trpc";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { twMerge } from "tailwind-merge";
+import ReduxProvider from "@/lib/context/redux";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const NotoSans = Noto_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,12 +24,16 @@ export default function LocaleLayout({
 }) {
   const messages = useMessages();
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
+    <html className="w-full h-full" lang={locale}>
+      <body
+        className={twMerge(NotoSans.className, "w-full h-full bg-background")}
+      >
         <TrpcProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
+          <ReduxProvider>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </ReduxProvider>
         </TrpcProvider>
       </body>
     </html>

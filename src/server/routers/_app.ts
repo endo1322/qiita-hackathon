@@ -1,12 +1,12 @@
-import { procedure, router } from "@/server/trpc";
-import { z } from "zod";
+import { router } from "@/server/trpc";
+import TechRouter from "./TechRouter";
+import ThreadRouter from "./ThreadRouter";
+import MessageRouter from "./MessageRouter";
 
 export const appRouters = router({
-  hello: procedure
-    .input(z.object({ text: z.string() }))
-    .query(async ({ input }) => {
-      return { greeting: `hello ${input.text} world` };
-    }),
+  tech: TechRouter,
+  thread: ThreadRouter,
+  message: MessageRouter,
 });
 
 // export type definition of API
